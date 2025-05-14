@@ -1,41 +1,32 @@
-import java.util.Arrays;
-public class Main {
+import java.util.Scanner;
+class Main {
     public static void main(String[] args) {
-        int[] x = new int[12];
-        for (int i = 0; i < x.length; i ++){
-            x[i] = ((int)((Math.random()*100))-50);
-        }
-        System.out.println("Было");
-        System.out.println(Arrays.toString(x));
-        int low = 0;
-        int high =  x.length-1;
-        quickSort(x, low, high);
-        System.out.println("Стало");
-        System.out.println(Arrays.toString(x));
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите m: ");
+//        double n = in.nextDouble();
+//        System.out.println("Введите x: ");
+//        double x = in.nextDouble();
+//        double sum = 0;
+//        if (x > 0.5) {
+//            for (double i = 1; i <=n; i++) {
+//                double w = Math.pow(x - 1, i + 1) /((i + 1) * Math.pow(x + 1, i + 1));
+//                sum += w;
+//            }
+//            System.out.printf("ln x = %f", sum);
+//        }
+//        else
+//            System.out.println("Не входит в одз");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите n: ");
+        double n = in.nextDouble();
+        double rez = 3* n + 1;
+        double col = 0;
+            if (rez % 2 == 0) {
+                while(rez!= 1) {
+                    rez /=2;
+                    col++;
+                }
+            System.out.println(col+1);
+}
     }
-    public static void quickSort(int[] array, int low, int high) {
-        if(array.length == 0||low >= high)
-            return;
-        int middle = low +(high -low)/2;
-        while (array[middle]<=0 && middle<high){
-            middle++;
-        }
-        int i = low, j = high;
-        int opora = array[middle];
-        while(i<j ){
-            while (array[i] < opora && array[i] > 0){
-                i++;
-            }
-            while (array[j] > opora && array[j] > 0){
-                j--;
-            }
-            if(i<=j) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
-            }}
-        if(low < j){quickSort(array, low, j);}
-        if(i < high){quickSort(array, i, high);}
-        }}
+}
